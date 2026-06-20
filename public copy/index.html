@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechStore — Produtos</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="header__inner">
+      <a href="index.html" class="logo">Tech<span>Store</span></a>
+      <nav class="header__nav">
+        <span id="contadorProdutos" class="badge"></span>
+        <button class="btn btn--primary" id="btnAbrirModal">+ Novo Produto</button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <p class="hero__eyebrow">Catálogo atualizado</p>
+    <h1 class="hero__title">Encontre o produto<br>certo para você.</h1>
+    <div class="hero__search">
+      <input type="text" id="inputBusca" placeholder="Buscar por nome ou categoria…" />
+    </div>
+  </section>
+
+  <section class="filtros">
+    <div class="filtros__inner">
+      <button class="filtro-btn active" data-cat="Todos">Todos</button>
+      <button class="filtro-btn" data-cat="Celulares">Celulares</button>
+      <button class="filtro-btn" data-cat="Notebooks">Notebooks</button>
+      <button class="filtro-btn" data-cat="Tablets">Tablets</button>
+      <button class="filtro-btn" data-cat="TVs">TVs</button>
+      <button class="filtro-btn" data-cat="Áudio">Áudio</button>
+    </div>
+  </section>
+
+  <main class="main">
+    <div id="loadingState" class="loading-state">
+      <div class="spinner"></div>
+      <p>Carregando produtos…</p>
+    </div>
+    <div id="emptyState" class="empty-state hidden">
+      <p class="empty-state__icon">📦</p>
+      <p>Nenhum produto encontrado.</p>
+      <button class="btn btn--primary" id="btnAbrirModalEmpty">Adicionar produto</button>
+    </div>
+    <div id="gridProdutos" class="grid hidden"></div>
+  </main>
+
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitulo">
+    <div class="modal__backdrop" id="modalBackdrop"></div>
+    <div class="modal__box">
+      <header class="modal__header">
+        <h2 id="modalTitulo">Novo Produto</h2>
+        <button class="modal__close" id="btnFecharModal" aria-label="Fechar">✕</button>
+      </header>
+
+      <div id="formErro" class="form-erro hidden"></div>
+
+      <form id="formProduto" novalidate>
+        <input type="hidden" id="produtoId" />
+
+        <div class="form-group">
+          <label for="inputNome">Nome <span class="obrigatorio">*</span></label>
+          <input type="text" id="inputNome" placeholder="Ex: Smartphone Galaxy S23" required />
+          <span class="field-error" id="erroNome"></span>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="inputPreco">Preço (R$) <span class="obrigatorio">*</span></label>
+            <input type="number" id="inputPreco" placeholder="0,00" min="0" step="0.01" required />
+            <span class="field-error" id="erroPreco"></span>
+          </div>
+          <div class="form-group">
+            <label for="inputCategoria">Categoria <span class="obrigatorio">*</span></label>
+            <select id="inputCategoria" required>
+              <option value="">Selecione…</option>
+              <option value="Celulares">Celulares</option>
+              <option value="Notebooks">Notebooks</option>
+              <option value="Tablets">Tablets</option>
+              <option value="TVs">TVs</option>
+              <option value="Áudio">Áudio</option>
+              <option value="Outros">Outros</option>
+            </select>
+            <span class="field-error" id="erroCategoria"></span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputImagem">URL da Imagem</label>
+          <input type="url" id="inputImagem" placeholder="https://…" />
+        </div>
+
+        <div class="form-group">
+          <label for="inputDescricao">Descrição <span class="obrigatorio">*</span></label>
+          <textarea id="inputDescricao" rows="3" placeholder="Descreva o produto…" required></textarea>
+          <span class="field-error" id="erroDescricao"></span>
+        </div>
+
+        <div class="form-group form-group--check">
+          <label class="check-label">
+            <input type="checkbox" id="inputEstoque" />
+            <span>Em estoque</span>
+          </label>
+        </div>
+
+        <div class="modal__actions">
+          <button type="button" class="btn btn--ghost" id="btnCancelar">Cancelar</button>
+          <button type="submit" class="btn btn--primary" id="btnSalvar">Salvar produto</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

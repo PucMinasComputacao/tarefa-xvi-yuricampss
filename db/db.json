@@ -1,0 +1,49 @@
+{
+  "produtos": [
+    {
+      "id": 1,
+      "nome": "Smartphone Galaxy S23",
+      "preco": 3499.90,
+      "categoria": "Celulares",
+      "imagem": "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400",
+      "descricao": "Smartphone com 128GB de armazenamento, câmera de alta resolução e excelente desempenho.",
+      "emEstoque": true
+    },
+    {
+      "id": 2,
+      "nome": "Notebook Dell Inspiron 15",
+      "preco": 4599.00,
+      "categoria": "Notebooks",
+      "imagem": "https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=400",
+      "descricao": "Notebook com processador Intel i7, 16GB de RAM e SSD de 512GB, ideal para trabalho e estudos.",
+      "emEstoque": false
+    },
+    {
+      "id": 3,
+      "nome": "Headphone Sony WH-1000XM5",
+      "preco": 1899.00,
+      "categoria": "Áudio",
+      "imagem": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400",
+      "descricao": "Fone de ouvido com cancelamento de ruído ativo, bateria de 30 horas e áudio premium.",
+      "emEstoque": true
+    },
+    {
+      "id": 4,
+      "nome": "Smart TV Samsung 55\"",
+      "preco": 2899.00,
+      "categoria": "TVs",
+      "imagem": "https://images.unsplash.com/photo-1593359677879-a4bb92f4834c?w=400",
+      "descricao": "Smart TV 4K QLED de 55 polegadas com HDR, streaming e sistema operacional Tizen.",
+      "emEstoque": true
+    },
+    {
+      "id": 5,
+      "nome": "Tablet iPad Air",
+      "preco": 5299.00,
+      "categoria": "Tablets",
+      "imagem": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400",
+      "descricao": "Tablet Apple com chip M1, tela Liquid Retina de 10.9\", compatível com Apple Pencil.",
+      "emEstoque": true
+    }
+  ]
+}

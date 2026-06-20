@@ -25,14 +25,8 @@ Controle de versionamento avançado com Git (commits organizados e tags).
 
 ## Informações Gerais
 
-- Nome:
-- Matricula:
+- Nome: Yuri Campos Silva
+- Matricula: 907001
 
 ## Prints do trabalho
-
-<<  COLOQUE A IMAGEM - TELA DE CARDS DE PRODUTOS - AQUI >>
-
-<<  COLOQUE A IMAGEM - TELA DE DETALHE DO PRODUTO - AQUI >>
-
-<<  COLOQUE A IMAGEM - TELA DO CONSOLE - AQUI >>
-
+![alt text](image.png)

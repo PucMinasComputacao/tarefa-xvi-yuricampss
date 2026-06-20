@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechStore — Detalhes do Produto</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="header__inner">
+      <a href="index.html" class="logo">Tech<span>Store</span></a>
+      <nav class="header__nav">
+        <a href="index.html" class="btn btn--ghost">← Voltar ao catálogo</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="detalhe-main">
+
+    <div id="loadingDetalhe" class="loading-state">
+      <div class="spinner"></div>
+      <p>Carregando produto…</p>
+    </div>
+
+    <div id="erroDetalhe" class="empty-state hidden">
+      <p class="empty-state__icon">⚠️</p>
+      <p>Produto não encontrado.</p>
+      <a href="index.html" class="btn btn--primary">Ir ao catálogo</a>
+    </div>
+
+    <article id="conteudoDetalhe" class="detalhe hidden">
+
+      <div class="detalhe__imagem-wrap">
+        <img id="detalheImagem" src="" alt="" class="detalhe__imagem" />
+        <span id="detalheBadgeEstoque" class="badge-estoque"></span>
+      </div>
+
+      <div class="detalhe__info">
+        <p id="detalheCategoria" class="detalhe__categoria"></p>
+        <h1 id="detalheNome" class="detalhe__nome"></h1>
+        <p id="detalheDescricao" class="detalhe__descricao"></p>
+
+        <div class="detalhe__preco-wrap">
+          <span class="detalhe__preco-label">Preço</span>
+          <span id="detalhePreco" class="detalhe__preco"></span>
+        </div>
+
+        <div class="detalhe__acoes">
+          <button class="btn btn--primary" id="btnEditarDetalhe">✏️ Editar produto</button>
+          <button class="btn btn--danger" id="btnExcluirDetalhe">🗑️ Excluir produto</button>
+        </div>
+      </div>
+
+    </article>
+  </main>
+
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitulo">
+    <div class="modal__backdrop" id="modalBackdrop"></div>
+    <div class="modal__box">
+      <header class="modal__header">
+        <h2 id="modalTitulo">Editar Produto</h2>
+        <button class="modal__close" id="btnFecharModal" aria-label="Fechar">✕</button>
+      </header>
+
+      <div id="formErro" class="form-erro hidden"></div>
+
+      <form id="formProduto" novalidate>
+        <input type="hidden" id="produtoId" />
+
+        <div class="form-group">
+          <label for="inputNome">Nome <span class="obrigatorio">*</span></label>
+          <input type="text" id="inputNome" required />
+          <span class="field-error" id="erroNome"></span>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="inputPreco">Preço (R$) <span class="obrigatorio">*</span></label>
+            <input type="number" id="inputPreco" min="0" step="0.01" required />
+            <span class="field-error" id="erroPreco"></span>
+          </div>
+          <div class="form-group">
+            <label for="inputCategoria">Categoria <span class="obrigatorio">*</span></label>
+            <select id="inputCategoria" required>
+              <option value="">Selecione…</option>
+              <option value="Celulares">Celulares</option>
+              <option value="Notebooks">Notebooks</option>
+              <option value="Tablets">Tablets</option>
+              <option value="TVs">TVs</option>
+              <option value="Áudio">Áudio</option>
+              <option value="Outros">Outros</option>
+            </select>
+            <span class="field-error" id="erroCategoria"></span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputImagem">URL da Imagem</label>
+          <input type="url" id="inputImagem" />
+        </div>
+
+        <div class="form-group">
+          <label for="inputDescricao">Descrição <span class="obrigatorio">*</span></label>
+          <textarea id="inputDescricao" rows="3" required></textarea>
+          <span class="field-error" id="erroDescricao"></span>
+        </div>
+
+        <div class="form-group form-group--check">
+          <label class="check-label">
+            <input type="checkbox" id="inputEstoque" />
+            <span>Em estoque</span>
+          </label>
+        </div>
+
+        <div class="modal__actions">
+          <button type="button" class="btn btn--ghost" id="btnCancelar">Cancelar</button>
+          <button type="submit" class="btn btn--primary" id="btnSalvar">Salvar alterações</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+
+  <script src="js/detalhes.js"></script>
+</body>
+</html>
